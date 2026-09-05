@@ -1,11 +1,15 @@
 import react, { useState } from 'react'
 
+
+/**
+
+ */
 function ToDoList() {  
     /**
      * Added 2 usestate variables, task and setTask.
      * The initial state of taskes is an empty array. Later will be populated with tasks  (string) that the user adds to the list.
      */
-    const [tasks, setTasks] = useState(["Example Task 1", "Example Task 2", "Example Task 3"]); /** set the initial state of tasks to an array of example tasks */
+    const [tasks, setTasks] = useState([]); /** set the initial state of tasks to an array of example tasks */
      /*
     -create a new state for a new task.
     -newTask is whatever we are typing in the input field/textbox. or currently edditing.
@@ -28,6 +32,11 @@ function ToDoList() {
      */
     function addTask(){
 
+        if (newTask.trim() !== '') { /** check if the newTask is not empty or only whitespace */
+        setTasks(t => [...t, newTask]); /** set the tasks state to a new array that includes all the previous tasks and the new task
+                                        use updater function (t: the previouse state of task) */
+        setNewTask(''); /** reset the newTask state to an empty string, so the input field is cleared after adding a task */
+        }
     }
     /**
      * Function to delete a task from the list.
@@ -35,7 +44,13 @@ function ToDoList() {
      * @param {*} index 
      */
     function deleteTask(index) {
+
+        const updatedTasks = tasks.filter((element, i) => i !== index); /** create a new array of tasks that excludes the task at the specified index, 
+                                                                            if the current index is strictly not equal to the index we would like to delete ,    
+                                                                             put in the new array of task.*/
+        setTasks(updatedTasks); /** set the tasks state to the updated array of tasks, effectively removing the task at the specified index */
     }
+
 
     /**
      * Function to move a task up in the list.
@@ -43,20 +58,32 @@ function ToDoList() {
      */
     function moveTaskUp(index) {  
 
-    }
+        if(index > 0) { /** check if the index is greater than 0, meaning the task is not already at the top of the list */
+            const updatedTasks = [...tasks]; /** create a copy of the tasks array */
+            [updatedTasks[index ], updatedTasks[index -1]] =
+            [updatedTasks[index - 1], updatedTasks[index]]; /** swap the task at the specified index with the task above it in the list */
+            setTasks(updatedTasks); /** set the tasks state to the updated array of tasks, effectively moving the task up in the list */
+        }
+    }   
 
     /**
      * Function to move a task down in the list.
      * @param {*} index 
      */
     function moveTaskDown(index) {
+        if(index < tasks.length -1) { /** check if the index is less than the last index of the tasks array, meaning the task is not already at the bottom of the list */
+            const updatedTasks = [...tasks]; /** create a copy of the tasks array */
+            [updatedTasks[index ], updatedTasks[index +1]] =
+            [updatedTasks[index + 1], updatedTasks[index]]; /** swap the task at the specified index with the task above it in the list */
+            setTasks(updatedTasks); /** set the tasks state to the updated array of tasks, effectively moving the task up in the list */
+        }
 
     }
 
     return(
     <div className= "todo-list">
 
-        <h1>To-DO-List</h1>
+        <h1>To-DO-List </h1>
         
         <div>
             <input
