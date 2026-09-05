@@ -1,7 +1,39 @@
 import react, { useState } from 'react'
 
 function ToDoList() {  
-        return(<></>)
-}
+    /**
+     * Added 2 usestate variables, task and setTask.
+     * The initial state of taskes is an empty array. Later will be populated with tasks  (string) that the user adds to the list.
+     */
+    const [tasks, setTasks] = useState([]);
+     /*
+    -create a new state for a new task.
+    -newTask is whatever we are typing in the input field/textbox. or currently edditing.
+    -useState('') is the initial state of newTask, which is an empty string. Later will be populated with the value of the input field/textbox.
+    */
+    const [newTask, setNewTask] = useState('');
 
+    /**
+     * Function to handle changes in the input field.
+     * Updates the newTask state with the value from the input field.
+     * this id for the textbox input field. when we type in something.
+     */
+    function handleInputeChange(event) {
+   
+        return(<></>);
+}
+    /**
+     * Function to add a new task to the list.
+     */
+    function addTask(){
+
+    }
+    /**
+     * Function to delete a task from the list.
+     * Indext: an integer representing the index of the task to be deleted in the tasks array.
+     * @param {*} index 
+     */
+    function deleteTask(index) {
+    }
+}
 export default ToDoList
