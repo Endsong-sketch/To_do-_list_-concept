@@ -75,6 +75,37 @@ function ToDoList() {
             </button>
         </div>
 
+        <ol>
+           {tasks.map((task, index) => 
+            <li key={index}>
+                <span className='text'>{task}</span>
+                <button
+                    className="delete-button"
+                    onClick={() => deleteTask(index)} /** set the onClick event handler to the deleteTask function,
+                    passing the index of the task to be deleted as an argument. 
+                    Added the arrow function to stop the onclick event handler from running immidiatly */
+                    >
+                    Delete
+                </button>
+                <button
+                    className="Move-up-button"
+                    onClick={() => moveTaskUp(index)} /** set the onClick handler to the moveTaskUp function,
+                     passing the index of the task to be moved*/
+                    >
+                    ⬆️
+                </button>
+                <button
+                    className="Move-down-button"
+                    onClick={() => moveTaskDown(index)} /** set the onClick handler to the moveTaskDown function,
+                     passing the index of the task to be moved*/
+                    >
+                    ⬇️
+                </button>
+
+            </li>
+           )} 
+        </ol>
+
     </div>);
 }
 export default ToDoList
