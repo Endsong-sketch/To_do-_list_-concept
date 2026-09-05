@@ -35,5 +35,21 @@ function ToDoList() {
      */
     function deleteTask(index) {
     }
+
+    /**
+     * Function to move a task up in the list.
+     * @param {*} index 
+     */
+    function moveTaskUp(index) {  
+
+    }
+
+    /**
+     * Function to move a task down in the list.
+     * @param {*} index 
+     */
+    function moveTaskDown(index) {
+
+    }
 }
 export default ToDoList
