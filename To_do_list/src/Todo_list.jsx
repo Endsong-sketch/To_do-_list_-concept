@@ -5,7 +5,7 @@ function ToDoList() {
      * Added 2 usestate variables, task and setTask.
      * The initial state of taskes is an empty array. Later will be populated with tasks  (string) that the user adds to the list.
      */
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(["Example Task 1", "Example Task 2", "Example Task 3"]); /** set the initial state of tasks to an array of example tasks */
      /*
     -create a new state for a new task.
     -newTask is whatever we are typing in the input field/textbox. or currently edditing.
@@ -20,7 +20,8 @@ function ToDoList() {
      */
     function handleInputeChange(event) {
         /**handel inpute change is tied to the onchange event handler */
-        
+        setNewTask(event.target.value); /** set the newTask state to the value of the input field, 
+                                        so when user types in the text box it will change */
     }
     /**
      * Function to add a new task to the list.
@@ -62,8 +63,16 @@ function ToDoList() {
             type="text" /** set the type of the inpute to text */
             placeholder='Enter a task...' /** set the placeholder text for the input field */
             value={newTask} /** set the value of the input field to the newTask state */
-            onChange={handleInputeChange} /** set the onChange event handler to the handleInputeChange function */
+            onChange={handleInputeChange} /** set the onChange event handler to the handleInputeChange function,  
+                                        The onChange event handler is making a call back to handleInputeChange function. */
             />
+            <button
+                className="add-Button"
+                onClick={addTask} /** set the onClick event handler to the addTask function */
+                >
+                Add Task
+                
+            </button>
         </div>
 
     </div>);
