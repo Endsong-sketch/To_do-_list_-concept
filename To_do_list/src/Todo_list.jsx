@@ -19,9 +19,9 @@ function ToDoList() {
      * this id for the textbox input field. when we type in something.
      */
     function handleInputeChange(event) {
-   
-        return(<></>);
-}
+        /**handel inpute change is tied to the onchange event handler */
+        
+    }
     /**
      * Function to add a new task to the list.
      */
@@ -51,5 +51,21 @@ function ToDoList() {
     function moveTaskDown(index) {
 
     }
+
+    return(
+    <div className= "todo-list">
+
+        <h1>To-DO-List</h1>
+        
+        <div>
+            <input
+            type="text" /** set the type of the inpute to text */
+            placeholder='Enter a task...' /** set the placeholder text for the input field */
+            value={newTask} /** set the value of the input field to the newTask state */
+            onChange={handleInputeChange} /** set the onChange event handler to the handleInputeChange function */
+            />
+        </div>
+
+    </div>);
 }
 export default ToDoList
