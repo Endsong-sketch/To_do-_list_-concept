@@ -1,5 +1,5 @@
 import react, { useState } from 'react'
-
+import Cozy from './assets/Cozy_B.jpg'
 
 /**
 
@@ -82,9 +82,13 @@ function ToDoList() {
 
     return(
     <div className= "todo-list">
-
-        <h1>To-DO-List </h1>
         
+      
+        <h1 class = "header-text">
+            To-DO-List 
+          <img src={Cozy} alt="To-Do-List" className='todo-list-icon'/>
+          
+        </h1>
         <div>
             <input
             type="text" /** set the type of the inpute to text */

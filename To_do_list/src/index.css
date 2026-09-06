@@ -6,11 +6,13 @@ body{
   font-family: Arial, sans-serif;
   text-align: center;
   margin-top: 100px;
-
+  
 }
-h1 {
+.header-text{
   color: #532b09;
   font-size: 3rem;
+  position: relative;/* Position the header relative to its container */
+  display: inline-block;/* Make the header inline-block to allow positioning of the icon */
 }
 button{
   font-size: 1.5rem;
@@ -90,4 +92,18 @@ li{
   font-size: 1.4rem;
 }
 
+.todo-list-icon{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  position: absolute;/* Position the icon relative to the header */
+  top: 1%;
+  left : 110%;
+  margin-left: 5px;/* Adjust the left position as needed */
+  margin-top: 1px;
+  width: 70px;
+  height: 70px;
+
+ 
+}
 
